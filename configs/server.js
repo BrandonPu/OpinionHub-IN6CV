@@ -9,6 +9,7 @@ import limiter from "../src/middlewares/validar-cant-peticiones.js";
 import authRoutes from "../src/auth/auth.routes.js";
 import userRoutes from "../src/users/user.routes.js";
 import { createAdminUser } from './adminSetup.js';
+import { createDefaultCategory } from "../src/category/category.controller.js";
 
 const middlewares = (app) => {
     app.use(express.urlencoded({extended: false}));
@@ -42,6 +43,7 @@ export const initServer = async () => {
         middlewares(app);
         await conectarDB(); 
         await createAdminUser();
+        await createDefaultCategory();
         routes(app);
         app.listen(port);
         console.log(`Server running on port: ${port}`);

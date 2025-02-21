@@ -59,6 +59,12 @@ export const register = async (req, res) => {
     try {
         const data = req.body;
 
+        if (data.role === 'ADMIN_ROLE') {
+            return res.status(400).json({
+                message: 'No se puede registrar un usuario con el rol ADMIN_ROLE.'
+            });
+        }
+
         const existingUser = await Usuario.findOne({
             $or: [{ username: data.username }, { email: data.email }]
         });
@@ -88,7 +94,7 @@ export const register = async (req, res) => {
             }
         });
     } catch (error) {
-        
+
         console.log(error);
 
         if (error.code === 11000) {
@@ -103,4 +109,4 @@ export const register = async (req, res) => {
             error: error.message
         });
     }
-}
+};
