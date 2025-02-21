@@ -8,6 +8,7 @@ import { dbConnection } from './mongo.js';
 import limiter from "../src/middlewares/validar-cant-peticiones.js";
 import authRoutes from "../src/auth/auth.routes.js";
 import userRoutes from "../src/users/user.routes.js";
+import { createAdminUser } from './adminSetup.js';
 
 const middlewares = (app) => {
     app.use(express.urlencoded({extended: false}));
@@ -33,13 +34,14 @@ const conectarDB = async() => {
     }
 }
 
-export const initServer = async() => {
+export const initServer = async () => {
     const app = express();
     const port = process.env.PORT || 3000;
 
     try {
         middlewares(app);
-        conectarDB();
+        await conectarDB(); 
+        await createAdminUser();
         routes(app);
         app.listen(port);
         console.log(`Server running on port: ${port}`);
