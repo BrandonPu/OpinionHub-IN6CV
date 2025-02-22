@@ -8,6 +8,7 @@ import { dbConnection } from './mongo.js';
 import limiter from "../src/middlewares/validar-cant-peticiones.js";
 import authRoutes from "../src/auth/auth.routes.js";
 import userRoutes from "../src/users/user.routes.js";
+import postRoutes from "../src/post/post.routes.js";
 import { createAdminUser } from './adminSetup.js';
 import { createDefaultCategory } from "../src/category/category.controller.js";
 
@@ -23,6 +24,7 @@ const middlewares = (app) => {
 const routes = (app) => {
     app.use('/opinionHub/v1/auth', authRoutes);
     app.use('/opinionHub/v1/user', userRoutes);
+    app.use('/opinionHub/v1/post', postRoutes);
 }
 
 const conectarDB = async() => {
