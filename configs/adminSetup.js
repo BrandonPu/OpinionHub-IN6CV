@@ -1,4 +1,4 @@
-import User from  "../src/users/user.model.js";
+import User from "../src/users/user.model.js";
 import { hash } from "argon2";
 
 export const createAdminUser = async () => {
@@ -13,7 +13,7 @@ export const createAdminUser = async () => {
                 surname: "System",
                 username: "admin",
                 email: "admin@system.com",
-                password: "admin123",
+                password: hashedPassword,
                 role: "ADMIN_ROLE",
             });
 
