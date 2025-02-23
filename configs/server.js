@@ -10,6 +10,7 @@ import authRoutes from "../src/auth/auth.routes.js";
 import userRoutes from "../src/users/user.routes.js";
 import postRoutes from "../src/post/post.routes.js";
 import categoryRoutes from "../src/category/category.routes.js";
+import commentRoutes from "../src/comment/comment.routes.js";
 import { createAdminUser } from './adminSetup.js';
 import { createDefaultCategory } from "../src/category/category.controller.js";
 
@@ -27,6 +28,7 @@ const routes = (app) => {
     app.use('/opinionHub/v1/user', userRoutes);
     app.use('/opinionHub/v1/post', postRoutes);
     app.use('/opinionHub/v1/category', categoryRoutes);
+    app.use('/opinionHub/v1/comment', commentRoutes);
 }
 
 const conectarDB = async() => {

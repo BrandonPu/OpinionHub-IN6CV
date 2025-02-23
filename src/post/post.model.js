@@ -1,27 +1,34 @@
 import { Schema, model } from "mongoose";
 
-const postSchema = Schema({
+const postSchema = new Schema(
+  {
     title: {
-        type: String,
-        required: true
+      type: String,
+      required: true
     },
     category: {
-        type: Schema.Types.ObjectId,
-        ref: 'Category',
-        required: true
+      type: Schema.Types.ObjectId,
+      ref: 'Category',
+      required: true
     },
     content: {
-        type: String,
-        required: true
+      type: String,
+      required: true
     },
     author: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    }
-},{
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
+    },
+    comments: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Comment'  // Referencia al modelo de comentarios
+    }]
+  },
+  {
     timestamps: true,
     versionKey: false
-});
+  }
+);
 
 export default model('Post', postSchema);

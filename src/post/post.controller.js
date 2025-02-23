@@ -12,8 +12,13 @@ export const getPosts = async (req, res) => {
             Post.find(query)
                 .skip(Number(desde))
                 .limit(Number(limite))
-                .populate("category", "name")  // Esto asegura que solo se obtendrá 'name' de la categoría
-                .populate("author", "username")
+                .populate("category", "name") 
+                .populate("author", "username") 
+                .populate({
+                    path: "comments",
+                    select: "content author createdAt", 
+                    populate: { path: "author", select: "username" }
+                })
         ]);
 
         const responsePosts = posts.map(post => ({
@@ -21,7 +26,11 @@ export const getPosts = async (req, res) => {
             title: post.title,
             content: post.content,
             author: post.author.username,
-            category: post.category ? post.category.name : 'Sin categoría'  // Verifica si category es null o no
+            category: post.category ? post.category.name : 'Sin categoría',
+            comments: post.comments.map(comment => ({
+                author: comment.author.username,
+                content: comment.content
+            }))
         }));
 
         res.status(200).json({
@@ -39,6 +48,7 @@ export const getPosts = async (req, res) => {
         });
     }
 };
+
 
 export const createPost = async (req, res) => {
     try {
