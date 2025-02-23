@@ -41,7 +41,6 @@ export const updateUser = async (req, res = response) => {
             });
         }
 
-        // Si se envían oldPassword y newPassword, se actualiza la contraseña
         if (oldPassword && newPassword) {
             const isMatch = await verify(user.password, oldPassword);
             if (!isMatch) {
@@ -53,7 +52,6 @@ export const updateUser = async (req, res = response) => {
             data.password = await hash(newPassword);
         }
 
-        // Actualiza el usuario con los nuevos datos
         const updatedUser = await User.findByIdAndUpdate(id, data, { new: true });
 
         res.status(200).json({

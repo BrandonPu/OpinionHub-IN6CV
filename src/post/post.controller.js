@@ -28,6 +28,7 @@ export const getPosts = async (req, res) => {
             author: post.author.username,
             category: post.category ? post.category.name : 'Sin categoría',
             comments: post.comments.map(comment => ({
+                id: comment._id,
                 author: comment.author.username,
                 content: comment.content
             }))
