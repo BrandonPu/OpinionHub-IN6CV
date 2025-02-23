@@ -12,21 +12,23 @@ export const getPosts = async (req, res) => {
             Post.find(query)
                 .skip(Number(desde))
                 .limit(Number(limite))
-                .populate("category", "name")
+                .populate("category", "name")  // Esto asegura que solo se obtendrá 'name' de la categoría
                 .populate("author", "username")
         ]);
+
+        const responsePosts = posts.map(post => ({
+            id: post._id,
+            title: post.title,
+            content: post.content,
+            author: post.author.username,
+            category: post.category ? post.category.name : 'Sin categoría'  // Verifica si category es null o no
+        }));
 
         res.status(200).json({
             success: true,
             title: "------------- Opinion Hub -------------",        
             total,
-            posts: posts.map(post => ({
-                id: post._id,
-                title: post.title,
-                category: post.category.name,
-                content: post.content,
-                author: post.author.username
-            }))
+            posts: responsePosts
         });
 
     } catch (error) {

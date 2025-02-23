@@ -1,4 +1,5 @@
 import Category from "./category.model.js"
+import Post from "../post/post.model.js"
 //import User from "../user/user.model.js"
 
 export const createDefaultCategory = async () => {
@@ -54,6 +55,86 @@ export const createCategory = async (req, res) => {
         res.status(500).json({
             success: false,
             message: "Error al agregar la categoría",
+            error: error.message
+        });
+    }
+};
+
+
+export const updateCategory = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { name, description } = req.body;
+
+        const category = await Category.findById(id);
+
+        if (!category) {
+            return res.status(404).json({
+                success: false,
+                message: "Categoría no encontrada"
+            });
+        }
+
+        category.name = name || category.name;
+        category.description = description || category.description;
+
+        await category.save();
+
+        await Post.updateMany({ category: id }, { $set: { category: category._id } });
+
+        res.status(200).json({
+            success: true,
+            message: "Categoría actualizada correctamente.",
+            category
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error al actualizar la categoría",
+            error: error.message
+        });
+    }
+};
+
+export const deleteCategory = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        console.log("Buscando categoría con ID:", id);
+        
+        const category = await Category.findById(id);
+        
+        if (!category) {
+            console.log("Categoría no encontrada con ID:", id);
+            return res.status(404).json({
+                success: false,
+                message: "Categoría no encontrada"
+            });
+        }
+
+        console.log("Categoría encontrada, eliminando...");
+
+       
+        await Post.updateMany(
+            { category: id },
+            { $set: { category: null } } 
+        );
+
+        await Category.findByIdAndDelete(id);
+
+        console.log("Categoría eliminada y publicaciones actualizadas.");
+
+        res.status(200).json({
+            success: true,
+            message: "Categoría eliminada y publicaciones actualizadas exitosamente"
+        });
+
+    } catch (error) {
+        console.log("Error en el proceso de eliminación:", error.message); 
+        res.status(500).json({
+            success: false,
+            message: "Error al eliminar la categoría, intente de nuevo",
             error: error.message
         });
     }
