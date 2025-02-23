@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { createPost, getPosts} from "./post.controller.js";
+import { createPost, getPosts, updatePost, deletePost} from "./post.controller.js";
 import { validarCampos } from "../middlewares/validar-campos.js";
 import { validarJWT } from "../middlewares/validar-jwt.js";
 
@@ -16,4 +16,25 @@ router.post(
     ],
     createPost
 )
+
+router.put(
+    "/:id",
+    [
+        validarJWT,
+        check("id", "No es un ID válido").isMongoId(),
+        validarCampos
+    ],
+    updatePost
+)
+
+router.delete(
+    "/:id",
+    [
+        validarJWT,
+        check("id", "No es un ID válido").isMongoId(),
+        validarCampos
+    ],
+    deletePost
+)
+
 export default router;

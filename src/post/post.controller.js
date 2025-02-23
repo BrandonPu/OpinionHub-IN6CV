@@ -79,3 +79,65 @@ export const createPost = async (req, res) => {
         });
     }
 };
+
+export const updatePost = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { _id, email, ...data } = req.body;
+
+        const post = await Post.findById(id).populate('author', 'username');
+
+        if (post.author.username !== req.usuario.username) {
+            return res.status(403).json({
+                success: false,
+                message: "No tienes permiso para actualizar esta publicación por favor registrate con el usuario que hiso la publicacion"
+            });
+        }
+
+        const updatedPost = await Post.findByIdAndUpdate(id, data, { new: true });
+
+        res.status(200).json({
+            success: true,
+            message: "Publicación actualizada",
+            post: updatedPost
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error al actualizar la publicación",
+            error: error.message
+        });
+    }
+}
+
+export const deletePost = async (req, res) => {
+
+    const { id } = req.params;
+
+    try {
+
+        const post = await Post.findById(id).populate('author', 'username');
+
+        if (post.author.username !== req.usuario.username) {
+            return res.status(403).json({
+                success: false,
+                message: "No tienes permiso para eliminar esta publicación por favor inicia secion con el usuario que hiso la publicacion"
+            });
+        }
+
+        await Post.findByIdAndDelete(id);
+
+        res.status(200).json({
+            success: true,
+            message: "Publicación eliminada"
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error al eliminar la publicación",
+            error: error.message
+        });
+    }
+};
