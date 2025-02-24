@@ -22,7 +22,7 @@ const postSchema = new Schema(
     },
     comments: [{
       type: Schema.Types.ObjectId,
-      ref: 'Comment'  // Referencia al modelo de comentarios
+      ref: 'Comment'
     }]
   },
   {

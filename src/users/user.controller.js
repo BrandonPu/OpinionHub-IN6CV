@@ -9,7 +9,7 @@ export const getUsers = async (req, res = response) => {
 
         const [total, users] = await Promise.all([
             User.countDocuments(query),
-            User.find(query, "name username _id") // Solo mostrar name, username y uid (_id)
+            User.find(query, "name username _id")
                 .skip(Number(desde))
                 .limit(Number(limite))
         ]);

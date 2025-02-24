@@ -1,0 +1,84 @@
+[{
+  "_id": {
+    "$oid": "67bbb96c85e85ec925d3b965"
+  },
+  "title": "Primera Impresiones en OpinionHub",
+  "category": {
+    "$oid": "67bbb24185e85ec925d3b941"
+  },
+  "content": "Hola gente soy Brandon y este es mi primera Impresion donde hare publicaciones cada semana y les dire lo ultimo en general",
+  "author": {
+    "$oid": "67bbb47b85e85ec925d3b945"
+  },
+  "comments": [],
+  "createdAt": {
+    "$date": "2025-02-24T00:12:28.303Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-24T00:49:39.409Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bbc1b8beda47982091dcff"
+  },
+  "title": "Segunda Publicacion en OpinionHub",
+  "category": {
+    "$oid": "67bbb24185e85ec925d3b941"
+  },
+  "content": "Este es el mejor programa de publicaciones",
+  "author": {
+    "$oid": "67bbb47b85e85ec925d3b945"
+  },
+  "comments": [],
+  "createdAt": {
+    "$date": "2025-02-24T00:47:52.332Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-24T00:50:26.725Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bbc69f1e5d3b624c2d3c3a"
+  },
+  "title": "Se vende tacoma ",
+  "category": {
+    "$oid": "67bbc64e1e5d3b624c2d3c33"
+  },
+  "content": "mecanico EXTRACAB",
+  "author": {
+    "$oid": "67bbc5001e5d3b624c2d3c27"
+  },
+  "comments": [
+    {
+      "$oid": "67bbc91a1e5d3b624c2d3c56"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-02-24T01:08:47.394Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-24T01:19:22.892Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bbceffbee38b3a1214932d"
+  },
+  "title": "se vende ropa",
+  "category": {
+    "$oid": "67bbce97bee38b3a12149324"
+  },
+  "content": "BLUSA",
+  "author": {
+    "$oid": "67bbcd54bee38b3a12149316"
+  },
+  "comments": [],
+  "createdAt": {
+    "$date": "2025-02-24T01:44:31.062Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-24T01:44:31.062Z"
+  }
+}]

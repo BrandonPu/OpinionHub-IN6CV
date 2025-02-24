@@ -2,6 +2,33 @@ import Category from "./category.model.js"
 import Post from "../post/post.model.js"
 //import User from "../user/user.model.js"
 
+export const getCategories = async (req = request, res = response) => {
+    try {
+        const { limite = 10, desde = 0 } = req.query;
+        const query = {};
+
+        const [total, categories] = await Promise.all([
+            Category.countDocuments(query),
+            Category.find(query)
+                .skip(Number(desde))
+                .limit(Number(limite))
+        ]);
+
+        res.status(200).json({
+            success: true,
+            total,
+            categories
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: "Error al obtener las categorías",
+            error
+        });
+    }
+};
+
 export const createDefaultCategory = async () => {
     try {
         

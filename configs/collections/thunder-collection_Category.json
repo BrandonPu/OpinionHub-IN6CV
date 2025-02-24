@@ -1,0 +1,96 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Category",
+    "collectionId": "ba19d4b5-a736-4087-9980-9c9f59b8f122",
+    "dateExported": "2025-02-24T01:46:58.026Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "1714b54a-6d44-4955-84c3-d6529d254c43",
+            "colId": "ba19d4b5-a736-4087-9980-9c9f59b8f122",
+            "containerId": "",
+            "name": "getCategory",
+            "url": "http://localhost:3000/opinionHub/v1/category/?desde=0&limite=10",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-02-24T00:39:10.272Z",
+            "modified": "2025-02-24T00:39:53.370Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "desde",
+                    "value": "0",
+                    "isPath": false
+                },
+                {
+                    "name": "limite",
+                    "value": "10",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "41d30582-8a71-4e0a-933b-31d65f96f105",
+            "colId": "ba19d4b5-a736-4087-9980-9c9f59b8f122",
+            "containerId": "",
+            "name": "newCategory",
+            "url": "http://localhost:3000/opinionHub/v1/category/",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2025-02-24T00:41:00.258Z",
+            "modified": "2025-02-24T01:42:47.221Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JiYjI0MTg1ZTg1ZWM5MjVkM2I5M2UiLCJpYXQiOjE3NDAzNTc3OTMsImV4cCI6MTc0MDM2NDk5M30.Iee1NCEIec1JtsJUpNN_o-f8OGo5TvlqQVm01XpO-1E"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"ROPA\",\n  \"description\": \"Area especial para prendas en general\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "ad369a55-489a-452d-ad65-5b3f521cd753",
+            "colId": "ba19d4b5-a736-4087-9980-9c9f59b8f122",
+            "containerId": "",
+            "name": "EditCategory",
+            "url": "http://localhost:3000/opinionHub/v1/category/67bbc0b3beda47982091dce8",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2025-02-24T00:44:23.156Z",
+            "modified": "2025-02-24T00:48:23.240Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JiYjI0MTg1ZTg1ZWM5MjVkM2I5M2UiLCJpYXQiOjE3NDAzNTc3OTMsImV4cCI6MTc0MDM2NDk5M30.Iee1NCEIec1JtsJUpNN_o-f8OGo5TvlqQVm01XpO-1E"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Deportes\",\n  \"description\": \"Area especial para deportes\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "e8162653-df49-4754-96ea-556e62d12a1b",
+            "colId": "ba19d4b5-a736-4087-9980-9c9f59b8f122",
+            "containerId": "",
+            "name": "EliminarCategory",
+            "url": "http://localhost:3000/opinionHub/v1/category/67bbc0b3beda47982091dce8",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2025-02-24T00:46:22.130Z",
+            "modified": "2025-02-24T00:49:09.251Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JiYjI0MTg1ZTg1ZWM5MjVkM2I5M2UiLCJpYXQiOjE3NDAzNTc3OTMsImV4cCI6MTc0MDM2NDk5M30.Iee1NCEIec1JtsJUpNN_o-f8OGo5TvlqQVm01XpO-1E"
+                }
+            ]
+        }
+    ],
+    "ref": "_L2msgFeeQ5viP47RWVyBXgDt-46ehnFPRJ83nd6TXAso8z5ClgCi6eZPE4sydYOAAwPtD07lQfZ8LSAijKQcw"
+}

@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "67bbc91a1e5d3b624c2d3c56"
+  },
+  "content": "Hola amigo como esta estara disponible el tacoma y a cuanto esta",
+  "post": {
+    "$oid": "67bbc69f1e5d3b624c2d3c3a"
+  },
+  "author": {
+    "$oid": "67bbb47b85e85ec925d3b945"
+  },
+  "createdAt": {
+    "$date": "2025-02-24T01:19:22.887Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-24T01:19:22.887Z"
+  }
+}]

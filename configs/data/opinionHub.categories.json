@@ -1,0 +1,39 @@
+[{
+  "_id": {
+    "$oid": "67bbb24185e85ec925d3b941"
+  },
+  "name": "General",
+  "description": "Categoría general para publicaciones",
+  "createdAt": {
+    "$date": "2025-02-23T23:41:53.012Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-23T23:41:53.012Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bbc64e1e5d3b624c2d3c33"
+  },
+  "name": "Ventas",
+  "description": "Area especial para Ventas en general",
+  "createdAt": {
+    "$date": "2025-02-24T01:07:26.544Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-24T01:07:26.544Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bbce97bee38b3a12149324"
+  },
+  "name": "ROPA",
+  "description": "Area especial para prendas en general",
+  "createdAt": {
+    "$date": "2025-02-24T01:42:47.216Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-24T01:42:47.216Z"
+  }
+}]
