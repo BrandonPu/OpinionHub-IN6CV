@@ -1,0 +1,542 @@
+{
+	"info": {
+		"_postman_id": "227705bc-549b-4e88-8df9-540e01d71cce",
+		"name": "OpinionHub-Collections",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37413624"
+	},
+	"item": [
+		{
+			"name": "Login & UserProfile",
+			"item": [
+				{
+					"name": "NewUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Brandon\",\r\n  \"surname\": \"Pu\",\r\n  \"username\": \"BrandonPu\",\r\n  \"email\": \"brandonpu@gmail.com\",\r\n  \"password\": \"12345678\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/opinionHub/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"opinionHub",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@system.com\",\r\n  \"password\":\"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/opinionHub/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"opinionHub",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditProfile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkNDNmMjdlM2U2Mjk5ZTQ2YTRmMWQiLCJpYXQiOjE3NDA0NTc1NjIsImV4cCI6MTc0MDQ2NDc2Mn0.krZv96O7n1Fu2cgKWbt_JDs6Qytg_9picTo1jjnykG4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Carlos\",\r\n  \"surname\": \"Contrera\",\r\n  \"username\": \"CarlosC\",\r\n  \"oldPassword\": \"12345678\",\r\n  \"newPassword\": \"87654321\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/opinionHub/v1/user/67bd443f7e3e6299e46a4f22",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"opinionHub",
+								"v1",
+								"user",
+								"67bd443f7e3e6299e46a4f22"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/opinionHub/v1/user/?desde=0&limite=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"opinionHub",
+								"v1",
+								"user",
+								""
+							],
+							"query": [
+								{
+									"key": "desde",
+									"value": "0"
+								},
+								{
+									"key": "limite",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post &  Comment",
+			"item": [
+				{
+					"name": "Post",
+					"item": [
+						{
+							"name": "ListarPublicaciones",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkNDNmMjdlM2U2Mjk5ZTQ2YTRmMWQiLCJpYXQiOjE3NDA0NTc2NTcsImV4cCI6MTc0MDQ2NDg1N30.wa5S4TlBjJf2M6oC3DY766m6uxiLOHUHbAIQBKRrY0o",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/opinionHub/v1/post/?desde=0&limite=10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"opinionHub",
+										"v1",
+										"post",
+										""
+									],
+									"query": [
+										{
+											"key": "desde",
+											"value": "0"
+										},
+										{
+											"key": "limite",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NewPost",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkNDNmMjdlM2U2Mjk5ZTQ2YTRmMWQiLCJpYXQiOjE3NDA0NTc2NTcsImV4cCI6MTc0MDQ2NDg1N30.wa5S4TlBjJf2M6oC3DY766m6uxiLOHUHbAIQBKRrY0o",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Primera Publicacion\",\r\n  \"category\": \"67bd421716b74092c619a97d\",\r\n  \"content\": \"Este es mi primer comentario\",\r\n  \"email\": \"brandonpu@gmail.com\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/opinionHub/v1/post/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"opinionHub",
+										"v1",
+										"post",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "EditPost",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkNDNmMjdlM2U2Mjk5ZTQ2YTRmMWQiLCJpYXQiOjE3NDA0NTc2NTcsImV4cCI6MTc0MDQ2NDg1N30.wa5S4TlBjJf2M6oC3DY766m6uxiLOHUHbAIQBKRrY0o",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Primera Publicacion\",\r\n  \"category\": \"67bd421716b74092c619a97d\",\r\n  \"content\": \"Este es mi primera publicacion en esta pagina web\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/opinionHub/v1/post/67bd48107e3e6299e46a4f36",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"opinionHub",
+										"v1",
+										"post",
+										"67bd48107e3e6299e46a4f36"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeletePost",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "x-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkNDNmMjdlM2U2Mjk5ZTQ2YTRmMWQiLCJpYXQiOjE3NDA0NTgyMTUsImV4cCI6MTc0MDQ2NTQxNX0.Yf2fWzkN9y_uBUBybFZjJd4y2M8MNMfttPT9ZUCMZoc",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/opinionHub/v1/post/67bd48f37e3e6299e46a4f4e",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"opinionHub",
+										"v1",
+										"post",
+										"67bd48f37e3e6299e46a4f4e"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Comment",
+					"item": [
+						{
+							"name": "NewComment",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkNDQzZjdlM2U2Mjk5ZTQ2YTRmMjIiLCJpYXQiOjE3NDA0NTgxMDcsImV4cCI6MTc0MDQ2NTMwN30.bmTxbuq7TxKxlJE-TJr6oQEiE-oLRE1UxAFImkSTyl0",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"content\": \"Hola amigo como estad igual to este es mi primer comentario en esta publicacion\",\r\n  \"post\": \"67bd48107e3e6299e46a4f36\",\r\n  \"email\": \"carlosc@gmail.com\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/opinionHub/v1/comment/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"opinionHub",
+										"v1",
+										"comment",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "EditComment",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkNDQzZjdlM2U2Mjk5ZTQ2YTRmMjIiLCJpYXQiOjE3NDA0NTgxMDcsImV4cCI6MTc0MDQ2NTMwN30.bmTxbuq7TxKxlJE-TJr6oQEiE-oLRE1UxAFImkSTyl0",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"content\": \"Hola amigo como estas, pues la verdad yo estoy igual pues este es mi primer comentario en esta publicacion\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/opinionHub/v1/comment/67bd4a067e3e6299e46a4f64",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"opinionHub",
+										"v1",
+										"comment",
+										"67bd4a067e3e6299e46a4f64"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteComment",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "x-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkNDQzZjdlM2U2Mjk5ZTQ2YTRmMjIiLCJpYXQiOjE3NDA0NTgxMDcsImV4cCI6MTc0MDQ2NTMwN30.bmTxbuq7TxKxlJE-TJr6oQEiE-oLRE1UxAFImkSTyl0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/opinionHub/v1/comment/67bd4b597e3e6299e46a4f7f",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"opinionHub",
+										"v1",
+										"comment",
+										"67bd4b597e3e6299e46a4f7f"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "GetCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/opinionHub/v1/category/?desde=0&limite=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"opinionHub",
+								"v1",
+								"category",
+								""
+							],
+							"query": [
+								{
+									"key": "desde",
+									"value": "0"
+								},
+								{
+									"key": "limite",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NewCategory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkNDIxNzE2Yjc0MDkyYzYxOWE5N2EiLCJpYXQiOjE3NDA0NTkwNDEsImV4cCI6MTc0MDQ2NjI0MX0.Xn4mm2iL95Wt7JJ1urtJlh2u41Ur48R85J1n7KoelaM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Carros\",\r\n  \"description\": \"Area especial para Carros y repuestod en general\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/opinionHub/v1/category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"opinionHub",
+								"v1",
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditCategory",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkNDIxNzE2Yjc0MDkyYzYxOWE5N2EiLCJpYXQiOjE3NDA0NTkwNDEsImV4cCI6MTc0MDQ2NjI0MX0.Xn4mm2iL95Wt7JJ1urtJlh2u41Ur48R85J1n7KoelaM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Carros\",\r\n  \"description\": \"Area especial para Carros y repuestos por todas partes\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/opinionHub/v1/category/67bd4c767e3e6299e46a4fa5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"opinionHub",
+								"v1",
+								"category",
+								"67bd4c767e3e6299e46a4fa5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCategory",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkNDIxNzE2Yjc0MDkyYzYxOWE5N2EiLCJpYXQiOjE3NDA0NTkwNDEsImV4cCI6MTc0MDQ2NjI0MX0.Xn4mm2iL95Wt7JJ1urtJlh2u41Ur48R85J1n7KoelaM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/opinionHub/v1/category/67bd4c767e3e6299e46a4fa5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"opinionHub",
+								"v1",
+								"category",
+								"67bd4c767e3e6299e46a4fa5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
