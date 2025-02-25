@@ -68,3 +68,43 @@ export const updateUser = async (req, res = response) => {
         });
     }
 };
+
+
+export const changeRole = async (req, res = response) => {
+    try {
+
+        const { id } = req.params;
+        const { role } = req.body;
+
+        if (!role || !["ADMIN_ROLE", "USER_ROLE"].includes(role)) {
+            return res.status(400).json({
+                success: false,
+                msg: "Rol no válido"
+            });
+        }
+
+        const user = await User.findById(id);
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                msg: "Usuario no encontrado"
+            });
+        }
+
+        user.role = role;
+        await user.save();
+
+        res.status(200).json({
+            success: true,
+            msg: "Rol actualizado con éxito",
+            user
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: "Error al cambiar el rol",
+            error: error.message
+        });
+    }
+};

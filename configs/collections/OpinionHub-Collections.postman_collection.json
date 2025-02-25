@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "227705bc-549b-4e88-8df9-540e01d71cce",
+		"_postman_id": "e18c6198-2a0e-4433-a05b-ed0d8fbc15a5",
 		"name": "OpinionHub-Collections",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "37413624"
@@ -139,6 +139,44 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "ChangeRole",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMzdlYzZlMTg2NTc0MGI5ODc5ZDMiLCJpYXQiOjE3NDA1MjA0MTUsImV4cCI6MTc0MDUyNzYxNX0.WglxDCJgwmmqadWBs9DtOd1jXKsqKCkS9luzZarJcf4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\": \"ADMIN_ROLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/opinionHub/v1/user/67bbb47b85e85ec925d3b945/role",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"opinionHub",
+								"v1",
+								"user",
+								"67bbb47b85e85ec925d3b945",
+								"role"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -155,7 +193,7 @@
 								"header": [
 									{
 										"key": "x-token",
-										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkNDNmMjdlM2U2Mjk5ZTQ2YTRmMWQiLCJpYXQiOjE3NDA0NTc2NTcsImV4cCI6MTc0MDQ2NDg1N30.wa5S4TlBjJf2M6oC3DY766m6uxiLOHUHbAIQBKRrY0o",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMzdlYzZlMTg2NTc0MGI5ODc5ZDMiLCJpYXQiOjE3NDA1MTk2MzUsImV4cCI6MTc0MDUyNjgzNX0.8XayYsESwAqru02IAHojL6EWBiHF3xDRoyNSj6dB6yM",
 										"type": "text"
 									}
 								],
